@@ -23,7 +23,7 @@ Step 8: On Remix, click on the Solidity Compiler icon(right above the Ethereum l
 
 Step 9: Make sure your compiler version selected is 0.8.26. Click on the arrow to the right of Advanced Configurations. For EVM Version, choose London. Now click the big blue Compile button below.
 
-Step 10: Once you see a green check mark on the right on the SCompiler icon, click the icon below it that looks like the  Ethereum icon.
+Step 10: Once you see a green check mark on the right on the Compiler icon, click the icon below it that looks like the Ethereum icon.
 
 Step 11: Under Environment, choose Injected Provider - MetaMask
 
