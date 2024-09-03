@@ -1,4 +1,4 @@
-# Cryptogems-ERC20-Code
+# Cryptogems ERC20- Code
 ERC20 smart contract code
 
 STEPS
