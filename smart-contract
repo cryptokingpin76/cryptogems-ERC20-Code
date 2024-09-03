@@ -1,0 +1,60 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
+
+// ERC20 token with specific parameters, burn, mint, and pause functionality
+contract CustomToken is ERC20, Ownable, Pausable {
+    uint8 private _decimals;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////CHANGE CONSTRUCTOR SECTION DETAILS BELOW//////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Replace "DemoToken" with the name of your token and leave the quotes at the beginning and end of it
+// Replace "DETO" with your token symbol and leave the quotes at the beginning and end of it
+// Change the numer 18 for the decimals, to whatever you want between 0-18
+//Change 1000000(1 million tokens) to whatever amount of tokens you want to create when you deploy this smart contract. You can always mint more tokens later if you want to.
+
+    constructor() ERC20("DemoToken", "DETO") Ownable(msg.sender) {
+        _decimals = 18;
+        _mint(msg.sender, 1000000 * 10 ** uint256(_decimals));
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Override decimals function to use the custom decimals set before deployment
+    function decimals() public view virtual override returns (uint8) {
+        return _decimals;
+    }
+
+    // Function to mint new tokens, only owner can call
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+
+    // Function to burn tokens from the sender's account
+    function burn(uint256 amount) public {
+        _burn(msg.sender, amount);
+    }
+
+    // Function to burn tokens from a specific account, only owner can call
+    function burnFrom(address account, uint256 amount) public onlyOwner {
+        uint256 currentAllowance = allowance(account, msg.sender);
+        require(currentAllowance >= amount, "Burn amount exceeds allowance");
+        _approve(account, msg.sender, currentAllowance - amount);
+        _burn(account, amount);
+    }
+
+    // Function to pause all token transfers, only owner can call
+    function pause() public onlyOwner {
+        _pause();
+    }
+
+    // Function to unpause all token transfers, only owner can call
+    function unpause() public onlyOwner {
+        _unpause();
+    }
+}
