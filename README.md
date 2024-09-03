@@ -3,7 +3,8 @@ ERC20 smart contract code
 
 STEPS
 
-Step 1: Copy this code
+Step 1: Copy this code. Go back to the smart-contract file, and copy all the code. If you don't know how to get there, open up a new tab on your browser, and paste in the direct link to the smart contract in my Github repo: https://github.com/cryptokingpin76/cryptogemsERC20code/blob/main/smart-contract
+
 Step 2: Go to https://www.remix.ethereum.org
 Step 3: 
 
