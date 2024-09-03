@@ -1,7 +1,7 @@
 # cryptogemsERC20code
 ERC20 smart contract code
 
-1. To customeize this smart contract, you need to change itmes on lines: 34, 50, 51, 52, and 53.
+1. To customize this smart contract, you need to change itmes on lines: 34, 50, 51, 52, and 53.
 
 Line 34: after the word contract, there should be a space and then the name of your token/contract. It needs to be words only and be one string of words, no spaces in between the words.
 For example, if you want your token name to be cute kitty city, in line 34 you need to type it out as CuteKittyCity
